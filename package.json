@@ -1,0 +1,33 @@
+{
+  "name": "throw-error-on-timeout",
+  "version": "1.0.0",
+  "description": "Throw an error if an async function takes more than a set duration",
+  "main": "index.js",
+  "license": "MIT",
+  "author": {
+    "name": "Mathieu Tamer",
+    "url": "https://github.com/mathieutamer"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "jest": "^29.7.0"
+  },
+  "scripts": {
+    "test": "npx jest"
+  },
+  "keywords": [
+    "timeout",
+    "promise",
+    "throw",
+    "error",
+    "lambda"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mathieutamer/throw-error-on-timeout.git"
+  },
+  "homepage": "https://github.com/mathieutamer/throw-error-on-timeout",
+  "bugs": {
+    "url": "https://github.com/mathieutamer/throw-error-on-timeout/issues"
+  }
+}
