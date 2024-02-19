@@ -1,7 +1,7 @@
 {
   "name": "throw-error-on-timeout",
-  "version": "1.0.0",
-  "description": "Throw an error if an async function takes more than a set duration",
+  "version": "1.1.0",
+  "description": "Throw an error (and allow to stop flow) if an async function takes more than a set duration",
   "main": "index.js",
   "license": "MIT",
   "author": {

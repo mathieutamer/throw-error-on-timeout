@@ -1,5 +1,5 @@
 # throw-error-on-timeout
-Throw an error if an async function takes more than a set duration
+Throw an error (and allow to stop flow) if an async function takes more than a set duration
 
 ### Usage
 
@@ -10,7 +10,7 @@ const ThrowErrorOnTimeout = require('throw-error-on-timeout');
 const timeoutError = new ThrowErrorOnTimeout(1000);
 ```
 
-Method `raceWithTimeout` execute the async function, that acts in the exact same way as
+Method `raceWithTimeout` executes the async function, that acts in the exact same way as
 the original function, but throw an error if the race agains timeout is lost.
 
 ```javascript
@@ -25,6 +25,24 @@ try {
 } catch(err) {
   // "err" will be "Async function timeout", if global async function time-outs
   // or the error thrown by the function otherwise.
+}
+```
+
+Method `checkExpiration` allows to stop flow if the global function has already time-outed.
+
+```javascript
+try {
+  const globalResult = await timeoutError.raceWithTimeout(async () => {
+    await oneAsyncFunction();
+
+    timeoutError.checkExpiration();
+
+    // Will be executed only if global function has not time-outed yet
+    // at the time of the "checkExpiration", the line before
+    await anotherAsyncFunction();
+  });
+} catch(err) {
+  // "err" will still be "Async function timeout", if global async function time-outs
 }
 ```
 

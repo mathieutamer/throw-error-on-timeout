@@ -37,6 +37,16 @@ class ThrowErrorOnTimeout {
       })(),
     ]);
   }
+
+  /**
+   * Throws an error if timeout has already expired
+   * @return  {Void}
+   */
+  checkExpiration() {
+    if (this.expired) {
+      throw new Error('Global async function has already expired');
+    }
+  }
 }
 
 module.exports = ThrowErrorOnTimeout;
