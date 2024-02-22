@@ -3,7 +3,7 @@ module.exports = {
     node: true,
     jest: true,
   },
-  extends: 'airbnb',
+  extends: 'airbnb-base',
   parserOptions: {
     ecmaVersion: 'latest',
   },
