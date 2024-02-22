@@ -8,8 +8,9 @@
     "name": "Mathieu Tamer",
     "url": "https://github.com/mathieutamer"
   },
-  "dependencies": {},
   "devDependencies": {
+    "eslint": "^8.56.0",
+    "eslint-config-airbnb": "^19.0.4",
     "jest": "^29.7.0"
   },
   "scripts": {
