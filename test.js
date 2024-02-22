@@ -1,7 +1,7 @@
 const ThrowErrorOnTimeout = require('./index');
 
 // Sugar syntax for wait in order to simplify tests
-const wait = async (time) => new Promise(resolve => {
+const wait = async (time) => new Promise((resolve) => {
   setTimeout(() => resolve(), time);
 });
 
@@ -40,7 +40,6 @@ describe('ThrowErrorOnTimeout', () => {
           await wait(100);
           throw new Error(errorMessage);
         });
-
       } catch (err) {
         expect(err.message).toBe('test error');
         return;
@@ -55,7 +54,6 @@ describe('ThrowErrorOnTimeout', () => {
           await wait(300);
           return testedValue;
         });
-
       } catch (err) {
         expect(err.message).toBe('Async function timeout');
         return;
@@ -70,7 +68,6 @@ describe('ThrowErrorOnTimeout', () => {
           await wait(300);
           throw new Error(errorMessage);
         });
-
       } catch (err) {
         expect(err.message).toBe('Async function timeout');
         return;
@@ -132,7 +129,7 @@ describe('ThrowErrorOnTimeout', () => {
         await timeoutError.raceWithTimeout(async () => {
           await wait(300);
           timeoutError.checkExpiration();
-          spy();  // spy will not be called because function will timeout
+          spy(); // spy will not be called because function will timeout
           // and flow is stopped by "checkExpiration" function
           return testedValue;
         });
