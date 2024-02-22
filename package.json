@@ -14,7 +14,8 @@
     "jest": "^29.7.0"
   },
   "scripts": {
-    "test": "npx jest"
+    "lint": "npx eslint .",
+    "test": "npm run lint && npx jest"
   },
   "keywords": [
     "timeout",
