@@ -1,14 +1,38 @@
 # throw-error-on-timeout
 Throw an error (and allow to stop flow) if an async function takes more than a set duration
 
-### Usage
+## Installation
+```
+npm i --save throw-error-on-timeout
+```
+## Usage
 
-Constructor defines a timeout in milliseconds.
+### Initialization
+
+**CommonJS modules**
+
+For CommonJS modules (require/exports)
 ```javascript
 const ThrowErrorOnTimeout = require('throw-error-on-timeout');
+```
 
+**JavaScript modules**
+
+For JavaScript modules (import/export)
+```javascript
+import ThrowErrorOnTimeout from 'throw-error-on-timeout';
+```
+
+**Instanciation**
+
+Instanciate with defined timeout
+```javascript
 const timeoutError = new ThrowErrorOnTimeout(1000);
 ```
+
+### Methods
+
+**raceWithTimeout**
 
 Method `raceWithTimeout` executes the async function, that acts in the exact same way as
 the original function, but throw an error if the race agains timeout is lost.
@@ -28,6 +52,8 @@ try {
 }
 ```
 
+**checkExpiration**
+
 Method `checkExpiration` allows to stop flow if the global function has already time-outed.
 
 ```javascript
@@ -46,7 +72,7 @@ try {
 }
 ```
 
-### Lambda use case
+## Lambda use case
 
 This package was initially created in order to handle lambda timeout. Lambda provides a `getRemainingTimeInMillis` method in the `context` object that gives the remaining time before lambda timeout.
 So calling the constructor with that function allows to anticipate lambda timeout:
@@ -55,6 +81,6 @@ So calling the constructor with that function allows to anticipate lambda timeou
 const promiseTimeout = new PromiseChainTimeoutRejection(context.getRemainingTimeInMillis() - 500);
 ```
 
-### Re-writing of old "promise-chain-timeout-rejection" package
+## Re-writing of old "promise-chain-timeout-rejection" package
 
 This package is a re-writing of the  "promise-chain-timeout-rejection" [package](https://github.com/Precogs-com/promise-chain-timeout-rejection) adapted to async/await functions.
